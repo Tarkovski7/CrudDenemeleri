@@ -1,0 +1,38 @@
+@model List<Person>
+@{
+    ViewData["Title"] = "GetAll";
+}
+
+<h2>Person List</h2>
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>SurName</td>
+            <td>Mail</td>
+            <td>BirthDate</td>
+            <td>Options</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.SurName</td>
+                <td>@item.Mail</td>
+                <td>@item.BirthDate</td>
+                <td>
+                    <form asp-action="Update" asp-route-id="@item.Id">
+                        <button type="submit" class="btn btn-warning">Düzenle</button>
+                    </form>
+                    <form asp-action="Delete" asp-route-id="@item.Id">
+                        <button type="submit" class="btn btn-danger">Sil</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
