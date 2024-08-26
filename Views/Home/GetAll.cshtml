@@ -18,7 +18,7 @@
       @foreach (var item in Model) {
       <tr>
         <td>
-          <form style="display: inline-block;" asp-action="GetById" asp-route-id="@item.Id">
+          <form style="display: inline-block;" asp-action="GetById" method="get" asp-route-id="@item.Id">
             <button type="submit" class="btn btn-outline-success">Kişi Detayları</button>
           </form>
         </td>

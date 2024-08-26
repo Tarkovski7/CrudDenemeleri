@@ -1,6 +1,18 @@
+@model Person
 @{
     ViewData["Title"] = "GetById";
 }
 
 
-getbyid
+<div class="card" @*style="width: 32rem;"*@>
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name @Model.SurName</h5>
+        <p class="card-text">@Model.BirthDate</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Title buraya yazılacak.</li>
+        <li class="list-group-item">@Model.Mail</li>
+        <li class="list-group-item">Devamı burada ve aşağısında yer alacak.</li>
+    </ul>
+    
+</div>
