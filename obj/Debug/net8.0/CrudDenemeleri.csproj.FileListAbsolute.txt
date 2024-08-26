@@ -28,3 +28,4 @@ c:\Users\trkbg\Documents\Projelerim\CrudDenemeleri\obj\Debug\net8.0\refint\CrudD
 c:\Users\trkbg\Documents\Projelerim\CrudDenemeleri\obj\Debug\net8.0\CrudDenemeleri.pdb
 c:\Users\trkbg\Documents\Projelerim\CrudDenemeleri\obj\Debug\net8.0\CrudDenemeleri.genruntimeconfig.cache
 c:\Users\trkbg\Documents\Projelerim\CrudDenemeleri\obj\Debug\net8.0\ref\CrudDenemeleri.dll
+C:\Users\trkbg\Documents\Projelerim\CrudDenemeleri\obj\Debug\net8.0\CrudDenemeleri.sourcelink.json

@@ -41,7 +41,7 @@ namespace CrudDenemeleri.Services.Concretes
 
         public void Update(Person person)
         {
-            Person updatedPerson = people.FirstOrDefault(p => p.Id == person.Id);
+            Person updatedPerson = GetById(person.Id);
             updatedPerson.Name = person.Name;
             updatedPerson.SurName = person.SurName;
             updatedPerson.BirthDate = person.BirthDate;

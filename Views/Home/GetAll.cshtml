@@ -1,38 +1,42 @@
 @model List<Person>
-@{
-    ViewData["Title"] = "GetAll";
-}
+  @{ ViewData["Title"] = "GetAll"; }
 
-<h2>Person List</h2>
-<table class="table">
+  <h2>Person List</h2>
+  <table class="table">
     <thead class="table-dark">
-        <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>SurName</td>
-            <td>Mail</td>
-            <td>BirthDate</td>
-            <td>Options</td>
-        </tr>
+      <tr>
+        <td>Detaylar</td>
+        <td>Id</td>
+        <td>Name</td>
+        <td>SurName</td>
+        <td>Mail</td>
+        <td>BirthDate</td>
+        <td>Options</td>
+      </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Name</td>
-                <td>@item.SurName</td>
-                <td>@item.Mail</td>
-                <td>@item.BirthDate</td>
-                <td>
-                    <form asp-action="Update" asp-route-id="@item.Id">
-                        <button type="submit" class="btn btn-warning">Düzenle</button>
-                    </form>
-                    <form asp-action="Delete" asp-route-id="@item.Id">
-                        <button type="submit" class="btn btn-danger">Sil</button>
-                    </form>
-                </td>
-            </tr>
-        }
+      @foreach (var item in Model) {
+      <tr>
+        <td>
+          <form style="display: inline-block;" asp-action="GetById" asp-route-id="@item.Id">
+            <button type="submit" class="btn btn-outline-success">Kişi Detayları</button>
+          </form>
+        </td>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.SurName</td>
+        <td>@item.Mail</td>
+        <td>@item.BirthDate</td>
+        <td>
+          <form style="display: inline-block;" asp-action="Update" method="get" asp-route-id="@item.Id">
+            <button type="submit" class="btn btn-warning">Düzenle</button>
+          </form>
+          <form style="display: inline-block;" asp-action="Delete" asp-route-id="@item.Id">
+            <button type="submit" class="btn btn-danger">Sil</button>
+          </form>
+        </td>
+      </tr>
+      }
     </tbody>
-</table>
+  </table>
+  <a asp-action="Add" type="submit" class="btn btn-secondary">Kişi Ekle</a>
