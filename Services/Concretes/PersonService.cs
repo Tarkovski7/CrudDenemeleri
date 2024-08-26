@@ -11,8 +11,8 @@ namespace CrudDenemeleri.Services.Concretes
     public class PersonService : IPersonService
     {
         private static List<Person> people = new List<Person>{
-                new Person{Id=1 , Name= "Tarık Buğra" , SurName="Kaya" , Mail= new MailAddress("tarik.kaya@gmail.com") , BirthDate= new DateOnly(2000,07,17)},
-                new Person{Id=2 , Name= "Talha Tuğra" , SurName="Kaya" , Mail= new MailAddress("talha.kaya@gmail.com") , BirthDate= new DateOnly(2005,03,26)}
+                new Person{Id=1 , Name= "Tarık Buğra" , SurName="Kaya" , Mail= "tarik.kaya@gmail.com" , BirthDate= new DateOnly(2000,07,17)},
+                new Person{Id=2 , Name= "Talha Tuğra" , SurName="Kaya" , Mail= "talha.kaya@gmail.com" , BirthDate= new DateOnly(2005,03,26)}
             };
         public PersonService()
         {
@@ -20,6 +20,14 @@ namespace CrudDenemeleri.Services.Concretes
         }
         public void Add(Person person)
         {
+            if (people.Count > 0)
+            {
+                person.Id = people.Max(p => p.Id) + 1;
+            }
+            else
+            {
+                person.Id = 1;
+            }
             people.Add(person);
         }
 
