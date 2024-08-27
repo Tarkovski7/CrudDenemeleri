@@ -1,11 +1,17 @@
+using CrudDenemeleri.Context;
 using CrudDenemeleri.Services.Concretes;
 using CrudDenemeleri.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IPersonService , PersonService>();
+
+builder.Services.AddDbContext<PersonDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConStr")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
