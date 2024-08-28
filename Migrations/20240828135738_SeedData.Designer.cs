@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CrudDenemeleri.Migrations
 {
     [DbContext(typeof(PersonDbContext))]
-    [Migration("20240826205352_Init")]
-    partial class Init
+    [Migration("20240828135738_SeedData")]
+    partial class SeedData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
