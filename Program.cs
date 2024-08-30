@@ -1,4 +1,5 @@
 using CrudDenemeleri.Context;
+using CrudDenemeleri.MiddleWares;
 using CrudDenemeleri.SeedData;
 using CrudDenemeleri.Services.Concretes;
 using CrudDenemeleri.Services.Interfaces;
@@ -10,7 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IPersonService , PersonService>();
-
+// hata yönetimi için kullandığım middleware
+builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddDbContext<PersonDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConStr")));
 var app = builder.Build();
@@ -38,6 +40,12 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+//middleware i pipeline a eklemek
+app.UseMiddleware<ErrorHandlingMiddleware>();
+
+
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
