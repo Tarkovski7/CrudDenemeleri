@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aJ/qQEYPxJwvEXkwq4LJccYW52WSMw1I8qp52Uo7VLQ=",
+  "Hash": "x61PDeyjvaFq31789Qdnyf3yvoxLH2MpaJV5S5go5OU=",
   "Source": "CrudDenemeleri",
   "BasePath": "_content/CrudDenemeleri",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\trkbg\\Documents\\Projelerim\\CrudDenemeleri\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CrudDenemeleri.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\trkbg\\Documents\\Projelerim\\CrudDenemeleri\\wwwroot\\css\\Error.css",
+      "SourceId": "CrudDenemeleri",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trkbg\\Documents\\Projelerim\\CrudDenemeleri\\wwwroot\\",
+      "BasePath": "_content/CrudDenemeleri",
+      "RelativePath": "css/Error.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Error.css"
     },
     {
       "Identity": "C:\\Users\\trkbg\\Documents\\Projelerim\\CrudDenemeleri\\wwwroot\\css\\site.css",
