@@ -29,46 +29,47 @@ namespace CrudDenemeleri.MiddleWares
             }
             catch (Exception ex) when (ex is ValidationException || ex is ArgumentException)
             {
-                _logger.LogWarning(ex, "Uyarı : İşleme alınamayan bir istek.");
+                _logger.LogWarning(ex, "Uyari : İsleme alinamayan bir istek.");
                 await HandleExceptionAsync(context, ex);
             }
             catch(Exception ex)
             {
-                _logger.LogError(ex, "Beklenmeyen bir hata oluştu...");
+                _logger.LogError(ex, "Beklenmeyen bir hata olustu...");
                 await HandleExceptionAsync(context, ex);
             }
         }
 
         private static Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
-            context.Response.ContentType = "application.json";
+            context.Response.ContentType = "text/html";
             var statusCode = (int)HttpStatusCode.InternalServerError;
-            var errorMessage = "Beklenmeyen bir hata oluştu.";
+            var redirectUrl = "/Error";
+
             switch (exception)
             {
                 case UnauthorizedAccessException _:
                     statusCode = (int)HttpStatusCode.Unauthorized;
-                    errorMessage = "Yetkisiz erişim.";
+                    redirectUrl = "/Error/UnAuthorized";
                     break;
                 case ArgumentException _:
                     statusCode = (int)HttpStatusCode.BadRequest;
-                    errorMessage = "Geçersiz parametre.";
+                    redirectUrl  = exception is ValidationException ? "/Error/ValidationError" : "/Error/BadRequest";
                     break;
-                case ValidationException _:
-                    statusCode = (int)HttpStatusCode.BadRequest;
-                    errorMessage = "Doğrulama Hatası.";
+                case NullReferenceException _:
+                    statusCode = (int)HttpStatusCode.NotFound;
+                    redirectUrl = "/Error/NotFound";
                     break;
                 default:
-                    errorMessage = exception.Message;
+                    redirectUrl = "/Error";
                     break;
             }
             context.Response.StatusCode = statusCode;
 
-            var result = Newtonsoft.Json.JsonConvert.SerializeObject(
-                new { error = errorMessage, details = exception.Message }
-            );
-
-            return context.Response.WriteAsync(result);
+            // var result = Newtonsoft.Json.JsonConvert.SerializeObject(
+            //     new { error = errorMessage, details = exception.Message }
+            // );
+            context.Response.Redirect(redirectUrl);
+            return Task.CompletedTask;
         }
     }
 }
