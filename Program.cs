@@ -11,8 +11,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IPersonService , PersonService>();
-// hata yönetimi için kullandığım middleware
-builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddDbContext<PersonDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConStr")));
 var app = builder.Build();
@@ -31,7 +29,8 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-
+//Hata yönetimi için
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -42,16 +41,19 @@ if (!app.Environment.IsDevelopment())
 }
 
 //middleware i pipeline a eklemek
-app.UseMiddleware<ErrorHandlingMiddleware>();
 
 
 
-
+//HTTP isteklerini HTTPS e yönlendirir
 app.UseHttpsRedirection();
-app.UseStaticFiles();
 
+//Static dosyalar(resimler , JS ,CSS) için
+app.UseStaticFiles(); 
+
+//İsteği uygun rotaya yönlendirir.
 app.UseRouting();
 
+//Yetkilendirme Kontrolü yapar.
 app.UseAuthorization();
 
 app.MapControllerRoute(
