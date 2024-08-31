@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\CrudDenemeleri.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\trkbg\\Documents\\Projelerim\\CrudDenemeleri\\wwwroot\\css\\Error.css",
+      "PackagePath": "staticwebassets\\css\\Error.css"
+    },
+    {
       "Id": "C:\\Users\\trkbg\\Documents\\Projelerim\\CrudDenemeleri\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

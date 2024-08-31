@@ -41,7 +41,7 @@ namespace CrudDenemeleri.Controllers
         [Route("Error/NotFound")]
         public IActionResult NotFoundError()
         {
-            ViewBag.ErrorMessage = "Veri Bulunamadı.";
+            ViewBag.ErrorMessage = "Aradığınız sayfa kaldırılmış , adı değiştirilmiş veya geçici olarak kullanılamıyor olabilir.";
             return View("NotFound");
         }
     }
