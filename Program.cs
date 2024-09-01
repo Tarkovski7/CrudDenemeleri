@@ -1,10 +1,11 @@
+using System.Diagnostics;
 using CrudDenemeleri.Context;
 using CrudDenemeleri.MiddleWares;
 using CrudDenemeleri.SeedData;
 using CrudDenemeleri.Services.Concretes;
 using CrudDenemeleri.Services.Interfaces;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
