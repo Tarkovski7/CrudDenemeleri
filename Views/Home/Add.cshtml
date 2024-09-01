@@ -3,7 +3,7 @@
     ViewData["Title"] = "Add";
 }
 
-<form action="Add" method="post">
+<form id="saveForm" action="Add" method="post">
     <div class="form-group">
         <label asp-for="Name"></label>
         <input asp-for="Name" class="form-control">
@@ -24,7 +24,7 @@
         <input asp-for="BirthDate" class="form-control" type="date" />
         <span asp-validation-for="BirthDate" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <button type="submit"   class="btn btn-primary">Kaydet</button>
 </form>
 
 @section Scripts {

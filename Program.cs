@@ -4,17 +4,25 @@ using CrudDenemeleri.MiddleWares;
 using CrudDenemeleri.SeedData;
 using CrudDenemeleri.Services.Concretes;
 using CrudDenemeleri.Services.Interfaces;
+using CrudDenemeleri.Validations;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder
+    .Services.AddControllersWithViews()
+    .AddFluentValidation(fv =>
+    {
+        fv.RegisterValidatorsFromAssemblyContaining<PersonValidator>();
+    });
 builder.Services.AddScoped<IPersonService, PersonService>();
 builder.Services.AddDbContext<PersonDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConStr"))
 );
+
+// builder.Services.AddFluentValidation();
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())

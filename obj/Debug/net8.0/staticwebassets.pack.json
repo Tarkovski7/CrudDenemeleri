@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\trkbg\\Documents\\Projelerim\\CrudDenemeleri\\wwwroot\\js\\alert.js",
+      "PackagePath": "staticwebassets\\js\\alert.js"
+    },
+    {
       "Id": "C:\\Users\\trkbg\\Documents\\Projelerim\\CrudDenemeleri\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

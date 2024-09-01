@@ -31,8 +31,8 @@
           <form style="display: inline-block;" asp-action="Update" method="get" asp-route-id="@item.Id">
             <button type="submit" class="btn btn-warning">Düzenle</button>
           </form>
-          <form style="display: inline-block;" asp-action="Delete" asp-route-id="@item.Id">
-            <button type="submit" class="btn btn-danger">Sil</button>
+          <form onsubmit="return confirmDelete()" style="display: inline-block;" asp-action="Delete" asp-route-id="@item.Id">
+            <button type="submit"  class="btn btn-danger">Sil</button>
           </form>
         </td>
       </tr>
