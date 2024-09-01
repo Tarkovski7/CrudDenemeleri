@@ -11,14 +11,14 @@ namespace CrudDenemeleri.Models
     {
         
         public int Id { get; set; }
-        [Required]
+        // [Required]
         public string Name { get; set; }
-        [Required]
+        // [Required]
         public string SurName { get; set; }
-        [Required]
+        // [Required]
         [EmailAddress]
         public string Mail { get; set; }
-        [Required]
+        // [Required]
         public DateOnly BirthDate { get; set; }
     }
 }
