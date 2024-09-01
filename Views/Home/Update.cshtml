@@ -5,7 +5,7 @@
 
 <h2>Update Person</h2>
 
-<form action="Update" method="post">
+<form action="Update" method="post" onsubmit="return confirmSave();">
    <div class="form-group">
     <label asp-for="Id"></label>
     <input asp-for="Id" readonly class="form-control" />

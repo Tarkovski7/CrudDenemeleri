@@ -12,10 +12,7 @@ namespace CrudDenemeleri.Services.Concretes
     public class PersonService : IPersonService
     {
         private readonly PersonDbContext context;
-        // private static List<Person> people = new List<Person>{
-        //         new Person{Id=1 , Name= "Tarık Buğra" , SurName="Kaya" , Mail= "tarik.kaya@gmail.com" , BirthDate= new DateOnly(2000,07,17)},
-        //         new Person{Id=2 , Name= "Talha Tuğra" , SurName="Kaya" , Mail= "talha.kaya@gmail.com" , BirthDate= new DateOnly(2005,03,26)}
-        //     };
+    
         public PersonService(PersonDbContext context)
         {
             this.context = context;
