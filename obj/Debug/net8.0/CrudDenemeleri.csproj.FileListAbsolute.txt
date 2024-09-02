@@ -140,4 +140,3 @@ C:\Users\trkbg\Documents\Projelerim\CrudDenemeleri\bin\Debug\net8.0\FluentValida
 C:\Users\trkbg\Documents\Projelerim\CrudDenemeleri\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 C:\Users\trkbg\Documents\Projelerim\CrudDenemeleri\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\trkbg\Documents\Projelerim\CrudDenemeleri\obj\Debug\net8.0\CrudDenemeleri.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\trkbg\Documents\Projelerim\CrudDenemeleri\bin\Debug\net8.0\SweetAlert2.dll
