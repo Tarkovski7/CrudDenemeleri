@@ -1,42 +1,43 @@
 @model List<Person>
-  @{ ViewData["Title"] = "GetAll"; }
+@{
+  ViewData["Title"] = "GetAll";
+}
 
-  <h2>Person List</h2>
-  <table class="table">
-    <thead class="table-dark">
-      <tr>
-        <td>Detaylar</td>
-        <td>Id</td>
-        <td>Name</td>
-        <td>SurName</td>
-        <td>Mail</td>
-        <td>BirthDate</td>
-        <td>Options</td>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach (var item in Model) {
-      <tr>
-        <td>
-          <form style="display: inline-block;" asp-action="GetById" method="get" asp-route-id="@item.Id">
-            <button type="submit" class="btn btn-outline-success">Kişi Detayları</button>
-          </form>
-        </td>
-        <td>@item.Id</td>
-        <td>@item.Name</td>
-        <td>@item.SurName</td>
-        <td>@item.Mail</td>
-        <td>@item.BirthDate</td>
-        <td>
-          <form style="display: inline-block;" asp-action="Update" method="get" asp-route-id="@item.Id">
-            <button type="submit" class="btn btn-warning">Düzenle</button>
-          </form>
-          <form style="display: inline-block;" asp-action="Delete" asp-route-id="@item.Id">
-            <button type="submit"  class="btn btn-danger">Sil</button>
-          </form>
-        </td>
-      </tr>
-      }
-    </tbody>
-  </table>
-  <a asp-action="Add" type="submit" class="btn btn-secondary">Kişi Ekle</a>
+<h2>Person List</h2>
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <td>Detaylar</td>
+      <td>Id</td>
+      <td>Name</td>
+      <td>SurName</td>
+      <td>Mail</td>
+      <td>BirthDate</td>
+      <td>Options</td>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model)
+{
+  <tr>
+    <td>
+      <a href="@Url.Action("GetById", new { id = item.Id })" class="btn btn-outline-success">Kişi Detayları</a>
+    </td>
+    <td>@item.Id</td>
+    <td>@item.Name</td>
+    <td>@item.SurName</td>
+    <td>@item.Mail</td>
+    <td>@item.BirthDate</td>
+    <td>
+      <a href="@Url.Action("Update", new { id = item.Id })" class="btn btn-warning">Düzenle</a>
+      <form id="deleteForm-@item.Id" asp-action="Delete" method="post">
+        <input type="hidden" name="id" value="@item.Id" />
+        <button type="submit" onclick="Delete(event , '@item.Id');" class="btn btn-danger">Sil</button>
+      </form>
+    </td>
+  </tr>
+}
+
+  </tbody>
+</table>
+<a asp-action="Add" type="submit" class="btn btn-secondary">Kişi Ekle</a>
