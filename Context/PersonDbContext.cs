@@ -13,5 +13,6 @@ namespace CrudDenemeleri.Context
 
         public DbSet<Person> Persons { get; set; }
         
+        
     }
 }
